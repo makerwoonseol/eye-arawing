@@ -38,23 +38,30 @@ const positions = [
 // 1. 페이지 로드시 바로 시작
 // --------------------
 
-window.onload = async () => {
-  await webgazer
-    .setRegression("ridge")
-    .setTracker("clmtrackr")
-    .setGazeListener((data) => {
-      if (!data) return;
+window.onload = async function () {
+  try {
+    await webgazer
+      .setTracker("TFFacemesh")
+      .setRegression("ridge")
+      .setGazeListener((data) => {
+        if (!data) return;
 
-      currentX = data.x;
-      currentY = data.y;
+        const dot = document.getElementById("gazeDot");
+        dot.style.left = `${data.x}px`;
+        dot.style.top = `${data.y}px`;
 
-      render();
-    })
-    .begin();
+        console.log("GAZE:", data.x, data.y);
+      })
+      .begin();
 
-  webgazer.showVideo(true);
-  webgazer.showFaceOverlay(true);
-  webgazer.showFaceFeedbackBox(true);
+    webgazer.showVideo(true);
+    webgazer.showFaceOverlay(true);
+    webgazer.showFaceFeedbackBox(true);
+
+    console.log("WebGazer started");
+  } catch (err) {
+    console.error("WEBGAZER ERROR:", err);
+  }
 };
 
 // --------------------
