@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eye Tracking Drawing</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- WebGazer -->
+    <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+  </head>
+
+  <body>
+    <!-- 로고 -->
+    <div class="logo">EYE TRACKING DRAWING</div>
+
+    <!-- 시작 화면 -->
+    <div class="start-screen" id="startScreen">
+      <button id="startButton">START DRAWING</button>
+    </div>
+
+    <div id="calibrationScreen" class="hidden">
+      <div class="calibration-text">LOOK AT EACH POINT AND CLICK 5 TIMES</div>
+
+      <div id="calibrationPoints"></div>
+    </div>
+
+    <!-- 드로잉 캔버스 -->
+    <canvas id="drawingCanvas"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>

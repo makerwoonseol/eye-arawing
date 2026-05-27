@@ -1,0 +1,102 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: black;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* 좌측 상단 로고 */
+.logo {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  z-index: 100;
+}
+
+/* 중앙 시작 화면 */
+.start-screen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: black;
+  z-index: 10;
+}
+
+/* 시작 버튼 */
+#startButton {
+  background: transparent;
+  color: white;
+
+  border: 1px solid white;
+
+  padding: 20px 40px;
+
+  font-size: 16px;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#startButton:hover {
+  background: white;
+  color: black;
+}
+
+/* 캔버스 */
+canvas {
+  position: fixed;
+  inset: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#calibrationScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 20;
+}
+
+.calibration-text {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+#calibrationPoints {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.calibration-point {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: 0.2s;
+}
