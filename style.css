@@ -100,3 +100,14 @@ canvas {
   opacity: 0.4;
   transition: 0.2s;
 }
+
+#gazeDot {
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
