@@ -1,3 +1,6 @@
+webgazer.params.faceMeshURL =
+  "https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/";
+
 const canvas = document.getElementById("drawingCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -40,6 +43,9 @@ const positions = [
 
 window.onload = async function () {
   try {
+    webgazer.params.faceMeshURL =
+      "https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/";
+
     await webgazer
       .setTracker("TFFacemesh")
       .setRegression("ridge")
@@ -47,10 +53,10 @@ window.onload = async function () {
         if (!data) return;
 
         const dot = document.getElementById("gazeDot");
-        dot.style.left = `${data.x}px`;
-        dot.style.top = `${data.y}px`;
-
-        console.log("GAZE:", data.x, data.y);
+        if (dot) {
+          dot.style.left = `${data.x}px`;
+          dot.style.top = `${data.y}px`;
+        }
       })
       .begin();
 
@@ -58,7 +64,7 @@ window.onload = async function () {
     webgazer.showFaceOverlay(true);
     webgazer.showFaceFeedbackBox(true);
 
-    console.log("WebGazer started");
+    console.log("WebGazer started successfully");
   } catch (err) {
     console.error("WEBGAZER ERROR:", err);
   }
